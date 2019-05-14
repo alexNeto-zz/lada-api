@@ -1,7 +1,7 @@
 from sources.cptec.auxiliar_information_enum import Auxiliar, Temperature
 
 
-class CPTECScrapy:
+class CptecScrapy:
 
     def __init__(self, parsed_html):
         self.__data = parsed_html
