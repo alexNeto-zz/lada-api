@@ -13,7 +13,7 @@ class CPTECGetter:
         self.city = city
 
     def __get_data_from_request(self):
-        self.__response = requests.get("{0}/{1}/{2}".format(self.__url, self.state, self.city))
+        self.__response = requests.get("{0}/{1}/{2}".format(self.__url, self.state, self.city)).content
         return self
 
     def __html_parser(self):
@@ -23,15 +23,3 @@ class CPTECGetter:
     def make_request(self):
         self.__get_data_from_request().__html_parser()
         return self.__parsed_response
-
-    def build_resume_today(self):
-        pass
-
-    def build_complete_today(self):
-        pass
-
-    def build_resume_week(self):
-        pass
-
-    def build_complete_week(self):
-        pass

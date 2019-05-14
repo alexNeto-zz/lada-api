@@ -5,12 +5,19 @@ class CPTECScrapy:
 
     def __init__(self, parsed_html):
         self.__data = parsed_html
+        self.__weather_condition_identifier = 'Ícone'
 
     def get_maximum_temperature(self):
         return self.__get_today_temperature(minimum=True)
 
     def get_minimum_temperature(self):
         return self.__get_today_temperature(minimum=False)
+
+    def get_weather_condition(self):
+        for img in self.__data.find_all('img'):
+            if self.__weather_condition_identifier in img['alt']:
+                return img['alt'].split(':')[1].strip(" ")
+        return []
 
     def get_sun_rise(self):
         return self.__get_auxiliar_informatin(Auxiliar.SUN_RISE)
