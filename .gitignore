@@ -13,3 +13,4 @@ venv/
 .idea/
 pip-selfcheck.json
 .flaskenv
+__pycache__/
