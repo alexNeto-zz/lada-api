@@ -1,5 +1,5 @@
-from sources.cptec.scrapy.cptec_api_scrapy import CptecAPIScrapy
-from sources.cptec.scrapy.cptec_scrapy import CptecScrapy
+from api.sources.cptec import CptecAPIScrapy
+from api.sources.cptec import CptecScrapy
 
 
 class CptecNormalizer:

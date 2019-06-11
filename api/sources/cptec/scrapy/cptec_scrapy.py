@@ -1,4 +1,4 @@
-from sources.cptec.auxiliar_information_enum import Auxiliar, Temperature
+from api.sources.cptec.auxiliar_information_enum import Auxiliar, Temperature
 
 
 class CptecScrapy:

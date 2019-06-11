@@ -1,6 +1,6 @@
-from sources.cptec.getter.cptec_api_getter import CptecAPIGetter
-from sources.cptec.getter.cptec_getter import CptecGetter
-from sources.cptec.normalizer.cptec_normalizer import CptecNormalizer
+from api.sources.cptec import CptecAPIGetter
+from api.sources.cptec import CptecGetter
+from api.sources.cptec import CptecNormalizer
 
 
 class CptecModel:
@@ -18,7 +18,16 @@ class CptecModel:
         return self
 
     def get_today_resume(self):
-        return CptecNormalizer(self.__today_data).get_resume()
+        today_resume = CptecNormalizer(self.__today_data).get_resume()
+        return {
+            "weatherCondition": today_resume.weather_condition,
+            "maximumTemperature": today_resume.maximum_temperature,
+            "minimumTemperature": today_resume.minimum_temperature,
+            "rainProbability": today_resume.rain_probability,
+            "source": "",
+            "sourceLogo": "",
+            "link": "",
+        }
 
     def get_today_complete(self):
         pass
