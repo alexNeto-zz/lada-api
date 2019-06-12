@@ -39,6 +39,7 @@ class CptecScrapy:
         return text.strip("\xa0").replace("°", "")
 
     def __get_today_temperature_container(self):
+        print(self.__data)
         return self.__data.find_all(attrs='temperaturas')[0]
 
     def __get_today_temperature(self, minimum=True):

@@ -3,4 +3,5 @@ lxml
 pymongo
 beautifulsoup4
 Flask
+flask_cors
 requests
