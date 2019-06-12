@@ -13,9 +13,11 @@ class CptecAPIScrapy:
         return list(map(self.__get_day_from_week, self.__data.find_all('previsao')))
 
     def get_city(self):
+        print(normalize(self.__data.find('nome').text).lower().replace(" ", "-"))
         return normalize(self.__data.find('nome').text).lower().replace(" ", "-")
 
     def get_state(self):
+        print(normalize(self.__data.find('uf').text).lower())
         return normalize(self.__data.find('uf').text).lower()
 
     @staticmethod

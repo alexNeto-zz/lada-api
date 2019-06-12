@@ -6,11 +6,11 @@ from api.sources.cptec.scrapy.cptec_api_scrapy import CptecAPIScrapy
 
 class CptecModel:
 
-    def __init__(self, x, y):
+    def __init__(self, latitude, longitude):
         self.__today_data = None
         self.__week_data = None
-        self.__x = x
-        self.__y = y
+        self.__latitude = latitude
+        self.__longitude = longitude
         self.city = None
         self.state = None
         self.__get_location()
@@ -21,7 +21,7 @@ class CptecModel:
         return self
 
     def __get_location(self):
-        data = CptecAPIScrapy(CptecAPIGetter(self.__x, self.__y).make_request())
+        data = CptecAPIScrapy(CptecAPIGetter(self.__latitude, self.__longitude).make_request())
         self.city = data.get_city()
         self.state = data.get_state()
 

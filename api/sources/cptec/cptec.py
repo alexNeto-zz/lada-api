@@ -6,8 +6,8 @@ cptec_blueprint = Blueprint(r'cptec', __name__)
 
 
 @cptec_blueprint.route("/today_resume/<string:x>/<string:y>")
-def today_resume(x, y):
-    return CptecModel(x, y).make_request().get_today_resume()
+def today_resume(latitude, longitude):
+    return CptecModel(latitude, longitude).make_request().get_today_resume()
 
 
 @cptec_blueprint.route("/today_complete/<string:state>/<string:city>")

@@ -6,5 +6,5 @@ today_resume_blueprint = Blueprint('today_resume', __name__)
 
 
 @today_resume_blueprint.route("/list/<string:x>/<string:y>")
-def today_resume(x, y):
-    return TodayResumeModel(x, y).get_today_resume_list()
+def today_resume(latitude, longitude):
+    return TodayResumeModel(latitude, longitude).get_today_resume_list()

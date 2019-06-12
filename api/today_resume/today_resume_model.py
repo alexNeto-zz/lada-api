@@ -5,9 +5,9 @@ from api.sources.cptec.cptec_model import CptecModel
 
 class TodayResumeModel:
 
-    def __init__(self, x, y):
-        self.__x = x
-        self.__y = y
+    def __init__(self, latitude, longitude):
+        self.__latitude = latitude
+        self.__longitude = longitude
         self.__sources = []
 
     def get_today_resume_list(self):
@@ -19,6 +19,6 @@ class TodayResumeModel:
 
     def __append_cptec(self):
         try:
-            self.__sources.append(CptecModel(self.__x, self.__y).make_request().get_today_resume())
+            self.__sources.append(CptecModel(self.__latitude, self.__longitude).make_request().get_today_resume())
         except IndexError:
             pass
