@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from api.sources.cptec import CptecModel
+from api.sources.cptec.cptec_model import CptecModel
 
 cptec_blueprint = Blueprint(r'cptec', __name__)
 

@@ -42,6 +42,6 @@ class CptecScrapy:
         return self.__data.find_all(attrs='temperaturas')[0]
 
     def __get_today_temperature(self, minimum=True):
-        return self.__trim(self.__get_today_temperature()
-                           .find_all(name='span')[Temperature.MINIMUM if minimum else Temperature.MAXIMUM]
+        return self.__trim(self.__get_today_temperature_container()
+                           .find_all(name='span')[Temperature.MINIMUM.value if minimum else Temperature.MAXIMUM.value]
                            .text)
