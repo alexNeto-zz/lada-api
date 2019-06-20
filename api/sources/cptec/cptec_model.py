@@ -32,9 +32,9 @@ class CptecModel:
             "maximumTemperature": today_resume['maximum_temperature'],
             "minimumTemperature": today_resume['minimum_temperature'],
             "rainProbability": today_resume['rain_probability'],
-            "source": "",
+            "source": "CPTEC",
             "sourceLogo": "",
-            "link": "",
+            "link": "https://www.cptec.inpe.br/",
         }
 
     def get_today_complete(self):
