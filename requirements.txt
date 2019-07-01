@@ -1,8 +1,11 @@
 unidecode
 lxml
+mongo
 pymongo
 Flask-PyMongo
 beautifulsoup4
 Flask
 flask_cors
 requests
+autopep8
+python-dotenv
