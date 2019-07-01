@@ -1,6 +1,7 @@
 unidecode
 lxml
 pymongo
+Flask-PyMongo
 beautifulsoup4
 Flask
 flask_cors
