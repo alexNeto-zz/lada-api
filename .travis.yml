@@ -1,15 +1,15 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 sudo: required
 install:
-  - pip install -r requirements.txt
-  - pip install coveralls
+- pip install -r requirements.txt
+- pip install coveralls
 script:
-  - coverage run --source=api setup.py test
+- coverage run --source=api setup.py test
 after_success:
-  - coveralls
+- coveralls
 deploy:
-  provider: firebase
-  token:
-    secure: GwoeZ+qb1I3rjCRxNjS1RLhIIbLdT0LXqVTRRn5BZH7Z+V3uUALEfMpcuHOl+FXedWbV4mwRtGOSQI1RVEcEy/VXGU9p4kM4jlG45DaMJxw5hGObckWr58sK2VvmeKrgWcz1jFwcXBBcAcZuwYgMdyqyC4qMmRQnl4PPNDoFe29vVJF5ypnlcMWXJOH4E5GfLxwRxEE5aL5V7nzy2jGXpoE6CbUuw/YIQKTycfaYqACcjcVr0rYwdnAE4R68fg3wWc6bPd+HIvJxpOKLTn3cQ1t2pz8ERs4fpgl7WXZw3gRprKJZYAoO6qm8jfjndvx24/ATzeomquHZ1iZ2UwopDsfRqLtrujo+mb//f8fg+iUTu+dR2zOwCT/P45OpS7+0gSYVO2O1JP+u08a5AxXj71WYRO5ZVF9kGOCABn+8KgA//ekLpjRL9U3ZVwEav6N5Ox293A79s0VjmX6fnMi0o8J4VC+aKdChudMpca1tkdhijNTBbXYgi/nj3+cPXVb3FgpnzpkHTEvrf+LC7MmV1nx01teO1AQlCepahXJ2Co5PF2jYCXtY/61RpqYB+jlCNDaspATMA1dHe3sE9stxL+ZVR73WGn2+hipK6Y9alufEQyLnz9qaxIsTn1EJeuv0IjWWnVQuXaVjYv67nCTT6hxjWxwjsFXm94X9Iz7dMBE=
+  provider: heroku
+  api_key:
+    secure: Nexz/BQ8rTqQaSTs/iS/sX1UYplziH3Ax57bDZl4BuRv9sm7pTcmqBq2b8wSiylbJXaDUJluxgUBfuMOHo4V5FHYx4YPznfYId10J6dhhJDuuVVQK43gPinkN7dRV6xr7NAKFpa2TlneldXTbLTUlm3ncFaHk7q8JA7VZxoYJwkdLya+W85PQz6v+aPxRPLC/uKInA4Kq2faIXiibIK3GGTsB+n1VIsH/cL9EDUsq/gnFM9sNd3GcpPivM4s7RFSVTNlf+uKCmv5O8NDVEmwJMkmgh1jXIOClwMKNYCrxHh8tyWTsPCqz173fFRtPJfONNutZT/RqfI2wTuQCOD17vWVuQOYMPfY0Ew1iLKphMQC7LpCZF+0VmjfGR4diGf25vlDRqUeq+q+ookJ0P8BCxBCmjQVGvbYRBN9BiNtP/xIq6Td5Y6apI2/eZPuoWMagk6OcepLOvvx9fxbPkDdhM2W6R3tDwyezanulrSfegJ4n7DvEQAGxj9ZYc+jQJ/cirbpwYfQFNw38il/px0KmAMluQteLro7dnXbwT2jX5YqvrDVFhQc2eb96syjg8js1z1vPScKkQ4fHG7UVlS7Kj0hwxtOVNfqqjImRXq+70VoIvr/HrDBGSmLxuTUpNWFP+gTh1Thfjq1lXSbPTQlPFHhdEADWOGWr43D1bv5Lgc=
