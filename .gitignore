@@ -15,4 +15,4 @@ venv/
 pip-selfcheck.json
 .flaskenv
 __pycache__/
-lada-api.egg-info/
+lada[-_]api.egg-info/
