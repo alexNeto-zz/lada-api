@@ -9,3 +9,4 @@ flask_cors
 requests
 autopep8
 python-dotenv
+gunicorn
