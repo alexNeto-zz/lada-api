@@ -9,6 +9,7 @@
 [Ss]cripts
 pyvenv.cfg
 .venv
+.env
 venv/
 .idea/
 .vscode/
