@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='lada-api',
-    version='0.0.0',
+    version='0.0.1',
     url='https://github.com/alexNeto/lada-api',
     license='MIT License',
     author='Alexandre Neto',
