@@ -3,7 +3,10 @@ lxml
 beautifulsoup4
 Flask
 flask_cors
+flask-restful
 requests
 autopep8
 python-dotenv
 gunicorn
+pymongo
+mongoengine

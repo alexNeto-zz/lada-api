@@ -1,15 +1,14 @@
 language: python
 python:
-  - '3.6'
   - '3.7'
 sudo: required
 install:
-- pip install -r requirements.txt
-- pip install coveralls
+  - pip install -r requirements.txt
+  - pip install coveralls
 script:
-- coverage run --source=api setup.py test
+  - coverage run --source=api setup.py test
 after_success:
-- coveralls
+  - coveralls
 deploy:
   provider: heroku
   api_key:

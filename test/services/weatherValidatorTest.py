@@ -1,6 +1,6 @@
 import unittest
 
-from api.services.weatherValidator import rain_probability
+from api.services.weather_validator import rain_probability
 
 
 class MyTestCase(unittest.TestCase):
