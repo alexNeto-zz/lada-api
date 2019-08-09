@@ -1,6 +1,6 @@
 import unittest
 
-from api.services.weather_validator import rain_probability
+from api.services.weather_validator import rain_probability, temperature
 
 
 class MyTestCase(unittest.TestCase):
@@ -32,7 +32,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(12.34, rain_probability(12.34))
 
     def test_rain_probability_in_interval_string(self):
-        self.assertEqual(54.121, rain_probability('54.121'))
+        self.assertEqual('54.121', rain_probability('54.121'))
+
+    def test_temperature(self):
+        self.assertEqual("12", temperature("12"))
 
 
 if __name__ == '__main__':

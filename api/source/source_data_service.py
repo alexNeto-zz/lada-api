@@ -14,3 +14,8 @@ class SourceDataService:
     @staticmethod
     def find_by_source_name(source_name: str):
         return Source.objects().filter(source_name=source_name).first()
+
+    @staticmethod
+    def find_by_country(country: str):
+        result = Source.objects(country_available=country.upper())
+        return result if result is not None else Source()

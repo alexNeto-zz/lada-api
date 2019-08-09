@@ -7,3 +7,12 @@
 
 ## Setup
 
+1. Create a _venv_ in the project folder:
+    * `$ python3 -m venv ./venv`.
+1. Activate the _venv_:
+    * `$ ./venv/bin/activate` -> for linux and mac;
+    * `$ .\venv\Script\activate` -> for windows or samething similar.
+1. Install the dependencies:
+    * `$ pip install -r requirements.txt`.
+1. Run it:
+    * `./run.sh`.

@@ -1,6 +1,3 @@
-from api.services.string_services import normalize
-
-
 class CptecAPIScrapy:
 
     def __init__(self, parsed_data):
@@ -11,12 +8,6 @@ class CptecAPIScrapy:
 
     def get_week_resume(self):
         return list(map(self.__get_day_from_week, self.__data.find_all('previsao')))
-
-    def get_city(self):
-        return normalize(self.__data.find('nome').text).lower().replace(" ", "-")
-
-    def get_state(self):
-        return normalize(self.__data.find('uf').text).lower()
 
     @staticmethod
     def __get_day_from_week(day):
