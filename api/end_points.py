@@ -17,4 +17,4 @@ class EndPoints:
         self.__api.add_resource(SourceItemController, '/source/<source_name>')
         self.__api.add_resource(SourceForLocationController, '/source/list-available/<country>')
         # CPTEC
-        self.__api.add_resource(CPTECTodayController, '/cptec/today/<region>/<city>')
+        self.__api.add_resource(CPTECTodayController, '/CPTEC/today/<region>/<city>')
