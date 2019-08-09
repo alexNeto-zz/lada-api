@@ -51,7 +51,7 @@ class CptecModel:
         for condition in source.conditions:
             for i in source.conditions[condition]:
                 if i == weather_condition:
-                    return condition
+                    return condition.replace('_', '-')
         return ''
 
     def get_week_resume(self):
