@@ -1,14 +1,21 @@
+def temperature(value):
+    return try_or_none(lambda: __validate_value(value, -100))
+
+
 def rain_probability(value):
-    try:
-        result = __validate_rain_probability(value)
-    except ValueError:
-        result = None
-    return result
+    return try_or_none(lambda: __validate_value(str(value).replace('%', '')))
 
 
-def __validate_rain_probability(value):
+def __validate_value(value, minimum=0, maximum=100):
     to_validate = float(value)
-    if 0 <= float(to_validate) <= 100:
-        return to_validate
+    if minimum <= float(to_validate) <= maximum:
+        return value
     else:
+        return None
+
+
+def try_or_none(on_try):
+    try:
+        return on_try()
+    except ValueError:
         return None
