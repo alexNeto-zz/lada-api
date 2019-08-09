@@ -3,7 +3,7 @@ def temperature(value):
 
 
 def rain_probability(value):
-    return try_or_none(lambda: __validate_value(str(value).replace('%', '')))
+    return try_or_none(lambda: __validate_value(value))
 
 
 def __validate_value(value, minimum=0, maximum=100):

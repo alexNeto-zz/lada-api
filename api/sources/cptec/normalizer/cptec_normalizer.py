@@ -15,7 +15,7 @@ class CptecNormalizer:
             "minimum_temperature": temperature(self.__scrapy.get_minimum_temperature()),
             "sun_rise": self.__scrapy.get_sun_rise(),
             "sun_down": self.__scrapy.get_sun_down(),
-            "rain_probability": rain_probability(self.__scrapy.get_rain_probability())
+            "rain_probability": rain_probability(self.__scrapy.get_rain_probability().replace('%', ''))
         }
 
     def get_week_resume(self):
