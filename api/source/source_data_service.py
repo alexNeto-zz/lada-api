@@ -17,5 +17,5 @@ class SourceDataService:
 
     @staticmethod
     def find_by_country(country: str):
-        result = Source.objects(country_available=country.upper())
+        result = Source.objects(country_available__in=['*', country.upper()])
         return result if result is not None else Source()

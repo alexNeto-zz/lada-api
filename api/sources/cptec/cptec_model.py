@@ -45,12 +45,11 @@ class CptecModel:
             'link': json.loads(source.source_uri.to_json())
         }
 
-    @staticmethod
-    def __parse_weather_condition(source, weather_condition):
+    @classmethod
+    def __parse_weather_condition(cls, source, weather_condition):
         for condition in source.conditions:
-            for i in source.conditions[condition]:
-                if i == weather_condition:
-                    return condition.replace('_', '-')
+            if weather_condition in source.conditions[condition]:
+                return condition.replace('_', '-')
         return ''
 
     def get_week_resume(self):
