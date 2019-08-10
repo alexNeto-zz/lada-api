@@ -14,5 +14,8 @@ class SourceForLocationModel:
     def __make_source_name_list(sources):
         source_list = []
         for source in sources:
-            source_list.append(source.source_name)
+            source_list.append({
+                'source': source.source_name,
+                'params': source.source_uri.site.params
+            })
         return source_list
