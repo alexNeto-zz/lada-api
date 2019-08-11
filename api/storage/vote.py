@@ -5,8 +5,9 @@ import mongoengine
 
 class Vote(mongoengine.Document):
     location = mongoengine.StringField()
-    up_vote = mongoengine.FloatField()
-    down_vote = mongoengine.FloatField()
+    source_name = mongoengine.StringField()
+    up_vote = mongoengine.IntField()
+    down_vote = mongoengine.IntField()
     update_at = mongoengine.DateTimeField(default=datetime.datetime.now)
 
     meta = {
