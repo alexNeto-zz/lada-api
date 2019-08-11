@@ -15,4 +15,9 @@ class SourceModel:
         return self.__data_service.find_all()
 
     def new_source(self, source_name: str, new_source: Source):
-        return new_source.save()
+        if source_name == new_source.source_name:
+            return new_source.save()
+        else:
+            return {
+                'msg': 'source_name não são iguais'
+            }
