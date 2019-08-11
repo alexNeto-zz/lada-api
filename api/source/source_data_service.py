@@ -2,20 +2,20 @@ from api.storage.source import Source
 
 
 class SourceDataService:
-    @staticmethod
-    def create_source(source: Source):
+    @classmethod
+    def create_source(cls, source: Source):
         source.save()
         return source
 
-    @staticmethod
-    def find_all():
+    @classmethod
+    def find_all(cls):
         return Source.objects()
 
-    @staticmethod
-    def find_by_source_name(source_name: str):
+    @classmethod
+    def find_by_source_name(cls, source_name: str):
         return Source.objects().filter(source_name=source_name).first()
 
-    @staticmethod
-    def find_by_country(country: str):
+    @classmethod
+    def find_by_country(cls, country: str):
         result = Source.objects(country_available__in=['*', country.upper()])
         return result if result is not None else Source()
