@@ -4,9 +4,10 @@ from flask import Flask
 from flask_cors import CORS
 
 from api.end_points import EndPoints
-from api.storage.mongo_setup import global_init
+from api.setup import global_init
 
 global_init()
+
 app = Flask(__name__)
 
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
