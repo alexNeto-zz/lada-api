@@ -12,7 +12,10 @@ class GetterDefinition:
         self.__arg1 = arg1
 
     def __get_data_from_request(self):
-        self.__response = requests.get(self.__url.format(self.__arg0, self.__arg1)).content
+        if self.__parser != 'json':
+            self.__response = requests.get(self.__url.format(self.__arg0, self.__arg1)).content
+        else:
+            self.__response = requests.get(self.__url.format(self.__arg0, self.__arg1)).json()
         return self
 
     def __parse(self):
@@ -20,5 +23,9 @@ class GetterDefinition:
         return self
 
     def make_request(self):
-        self.__get_data_from_request().__parse()
-        return self.__parsed_response
+        if self.__parser != 'json':
+            self.__get_data_from_request().__parse()
+            return self.__parsed_response
+        else:
+            self.__get_data_from_request()
+            return self.__response

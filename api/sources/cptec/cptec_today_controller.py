@@ -1,3 +1,5 @@
+import os
+
 from flask_restful import Resource
 
 from api.sources.cptec.cptec_model import CptecModel
