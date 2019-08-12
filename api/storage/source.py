@@ -11,7 +11,6 @@ class Source(mongoengine.Document):
     source_uri = mongoengine.EmbeddedDocumentField(SourceUri)
     country_available = mongoengine.ListField()
     conditions = mongoengine.EmbeddedDocumentField(Conditions)
-    votes_id = mongoengine.ListField()
     update_at = mongoengine.DateTimeField(default=datetime.datetime.now)
 
     meta = {

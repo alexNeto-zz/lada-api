@@ -22,5 +22,4 @@ class CptecNormalizer:
         return {
             "updated_at": self.__scrapy.get_updated_at(),
             "weather": self.__scrapy.get_week_resume()
-
         }
