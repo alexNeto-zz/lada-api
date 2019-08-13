@@ -28,7 +28,10 @@ class OpenWeatherNormalizer:
     @classmethod
     def __get_item_rain_probability(cls, today):
         try:
-            return today['rain']
+            if today['rain'] and today['rain']['3h']:
+                return today['rain']['3h'] * 100
+            else:
+                return 0
         except KeyError:
             return 0
 
@@ -52,7 +55,7 @@ class OpenWeatherNormalizer:
 
     @classmethod
     def __get_max(cls, forecast_list):
-        min_list = []
+        max_list = []
         for i in forecast_list:
-            min_list.append(i['main']['temp_max'])
-        return max(min_list)
+            max_list.append(i['main']['temp_max'])
+        return max(max_list)
