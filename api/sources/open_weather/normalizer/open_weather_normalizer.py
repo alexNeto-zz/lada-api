@@ -7,16 +7,38 @@ from api.sources.open_weather.getter.open_weather_getter import OpenWeatherGette
 class OpenWeatherNormalizer:
 
     def get_resume(self, latitude, longitude):
-        result = OpenWeatherGetter(latitude, longitude).make_request()
-        today = self.__filter_today_forecast(result['list'])
+        three_hour_result = OpenWeatherGetter('forecast', latitude, longitude).make_request()
+        today = self.__filter_today_forecast(three_hour_result['list'])
+        try:
+            if len(today) > 0:
+                return self.__get_hourly_model(today)
+            else:
+                current_result = OpenWeatherGetter('weather', latitude, longitude).make_request()
+                return self.__get_current_model(current_result)
+        except IndexError:
+            return {}
+
+    def __get_hourly_model(self, forecast):
         return {
-            "weather_condition": today[0]['weather'][0]['id'],
-            "current_weather": temperature(today[0]['main']['temp']),
-            "maximum_temperature": temperature(self.__get_max(today)),
-            "minimum_temperature": temperature(self.__get_min(today)),
+            "weather_condition": forecast[0]['weather'][0]['id'],
+            "current_weather": temperature(forecast[0]['main']['temp']),
+            "maximum_temperature": temperature(self.__get_max(forecast)),
+            "minimum_temperature": temperature(self.__get_min(forecast)),
             "sun_rise": None,
             "sun_down": None,
-            "rain_probability": rain_probability(self.__get_rain_probability(today))
+            "rain_probability": rain_probability(self.__get_rain_probability(forecast))
+        }
+
+    @classmethod
+    def __get_current_model(cls, forecast):
+        return {
+            "weather_condition": forecast['weather'][0]['id'],
+            "current_weather": forecast['main']['temp'],
+            "maximum_temperature": forecast['main']['temp_max'],
+            "minimum_temperature": forecast['main']['temp_min'],
+            "sun_rise": None,
+            "sun_down": None,
+            "rain_probability": 0
         }
 
     def __get_rain_probability(self, today):

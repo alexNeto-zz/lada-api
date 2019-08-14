@@ -23,6 +23,6 @@ class EndPoints:
         # VOTES
         self.__api.add_resource(VoteController, '/vote_of/<location>/source/<source>')
         # CPTEC
-        self.__api.add_resource(CPTECTodayController, '/CPTEC/today/<region>/<city>')
+        self.__api.add_resource(CPTECTodayController, '/CPTEC/INPE/today/<region>/<city>')
         # OPEN WEATHER
         self.__api.add_resource(OpenWeatherTodayController, '/Open Weather/today/<latitude>/<longitude>')
