@@ -33,7 +33,7 @@ class CptecModel:
 
     def get_today_resume(self):
         today_resume = CptecNormalizer(self.__today_data).get_resume()
-        source = Source.objects().filter(source_name='CPTEC').first()
+        source = Source.objects().filter(source_name='CPTEC/INPE').first()
         return {
             'weatherCondition': self.__parse_weather_condition(source, today_resume['weather_condition']),
             'currentWeather': None,
