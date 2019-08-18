@@ -21,9 +21,10 @@ class VoteModel:
         return vote.to_json()
 
     def __get_vote_or_new(self, source: str, location: str) -> Vote:
+        upper_source = source.upper()
         parsed_location = dash(location)
-        vote = Vote.objects().filter(source_name=source.upper(), location=parsed_location).first()
-        return vote if vote is not None else self.__create_new_vote(source, parsed_location)
+        vote = Vote.objects().filter(source_name=upper_source, location=parsed_location).first()
+        return vote if vote is not None else self.__create_new_vote(upper_source, parsed_location)
 
     @classmethod
     def __create_new_vote(cls, source: str, location: str) -> Vote:

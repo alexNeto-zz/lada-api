@@ -30,7 +30,7 @@ python3 -m venv ./venv
 - For Linux or Mac:
 
 ```bash
-./venv/bin/activate
+source venv/bin/activate
 ```
 
 - For Windows:
