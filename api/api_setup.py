@@ -9,4 +9,4 @@ def global_init():
                         db='heroku_x6jxgkt0',
                         host=os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/heroku_x6jxgkt0'))
 
-    sentry_sdk.init(dsn=os.environ.get('SENTRY_DSN', ''), release="lada-api@0.0.0")
+    sentry_sdk.init(dsn=os.environ.get('SENTRY_DSN', ''), release="lada-api@0.0.1")

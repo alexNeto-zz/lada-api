@@ -21,7 +21,7 @@ class EndPoints:
         self.__api.add_resource(SourceItemController, '/source/<source_name>')
         self.__api.add_resource(SourceForLocationController, '/source/list-available/<country>')
         # VOTES
-        self.__api.add_resource(VoteController, '/vote_of/<location>/source/<source>')
+        self.__api.add_resource(VoteController, '/vote_of/<location>/source/<string:source>')
         # CPTEC
         self.__api.add_resource(CPTECTodayController, '/CPTEC/INPE/today/<region>/<city>')
         # OPEN WEATHER
