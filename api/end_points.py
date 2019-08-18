@@ -1,5 +1,6 @@
 from flask_restful import Api
 
+from api.about.about_controller import AboutController
 from api.source.source_controller import SourceController
 from api.source.source_item_controller import SourceItemController
 from api.source_for_location.source_for_location_controller import SourceForLocationController
@@ -15,7 +16,7 @@ class EndPoints:
 
     def add_resources(self):
         # GENERAL
-        # TODO - home com informações da api
+        self.__api.add_resource(AboutController, '/about')
         # SOURCE
         self.__api.add_resource(SourceController, '/source')
         self.__api.add_resource(SourceItemController, '/source/<source_name>')
