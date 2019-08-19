@@ -1,3 +1,6 @@
+import datetime
+
+from api.services.ranking import ranking
 from api.services.string_services import dash
 from api.source.source_data_service import SourceDataService
 from api.storage.vote import Vote
@@ -13,6 +16,7 @@ class VoteModel:
 
     def update_vote_for_source(self, source, location, request_body):
         vote = self.__get_vote_or_new(source.upper(), location)
+        vote.score = ranking(vote.up_vote, vote.down_vote, datetime.datetime.now())
         if request_body['up_vote']:
             vote.up_vote = vote.up_vote + 1
         if request_body['down_vote']:
