@@ -12,7 +12,7 @@ script:
   - coverage run --source=api setup.py test
 after_success:
   - coveralls
-before_deploy:  "./envvars.sh"
+before_deploy:  bash envvars.sh
 deploy:
   provider: gae
   keyfile: lada-api-c9b5e4dfbe69.json
