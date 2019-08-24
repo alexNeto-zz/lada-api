@@ -3,7 +3,6 @@ python:
   - '3.7'
 sudo: required
 before_install:
-  - "./envvars.sh"
   - openssl aes-256-cbc -K $encrypted_dc2e35eaf6d8_key -iv $encrypted_dc2e35eaf6d8_iv
     -in lada-api-c9b5e4dfbe69.json.enc -out lada-api-c9b5e4dfbe69.json -d
 install:
@@ -13,6 +12,7 @@ script:
   - coverage run --source=api setup.py test
 after_success:
   - coveralls
+before_deploy:  "./envvars.sh"
 deploy:
   provider: gae
   keyfile: lada-api-c9b5e4dfbe69.json
