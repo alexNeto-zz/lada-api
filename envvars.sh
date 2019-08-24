@@ -2,12 +2,12 @@
 echo "start"
 
 echo "injecting variables"
-echo $AAA
-cat <<EOF >>.env
-MONGODB_URI: $MONGODB_URI
-OPEN_WEATHER_TOKEN: $OPEN_WEATHER_TOKEN
-SENTRY_DSN: $SENTRY_DSN
-TEST: AAAAAAAAAAA
+cat <<EOF >>app.yaml
+env_variables:
+  MONGODB_URI: $MONGODB_URI
+  OPEN_WEATHER_TOKEN: $OPEN_WEATHER_TOKEN
+  SENTRY_DSN: $SENTRY_DSN
+  TEST: AAAAAAAAAAA
 EOF
 #echo "teste %s" "$AAA"
 #{
