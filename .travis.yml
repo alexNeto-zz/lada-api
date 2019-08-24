@@ -16,5 +16,5 @@ before_deploy:  "./envvars.sh"
 deploy:
   provider: gae
   keyfile: lada-api-c9b5e4dfbe69.json
-  project: lada-api
+  project: lada-api-250623
 
