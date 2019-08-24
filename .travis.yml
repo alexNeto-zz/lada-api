@@ -3,9 +3,9 @@ python:
   - '3.7'
 sudo: required
 before_install:
+  - bash envvars.sh
   - openssl aes-256-cbc -K $encrypted_dc2e35eaf6d8_key -iv $encrypted_dc2e35eaf6d8_iv
     -in lada-api-c9b5e4dfbe69.json.enc -out lada-api-c9b5e4dfbe69.json -d
-  - bash envvars.sh
 install:
   - pip install -r requirements.txt
   - pip install coveralls

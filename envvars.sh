@@ -2,6 +2,7 @@
 echo "start"
 
 echo "injecting variables"
+echo "teste %s" "$AAA"
 {
   printf "\nenv_variables:\n"
   printf "  MONGODB_URI: '%s'\n" "$MONGODB_URI"
