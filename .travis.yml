@@ -13,7 +13,6 @@ script:
 after_success:
   - coveralls
 before_deploy:
-  - echo -e "env_variables:" >>app.yaml
   - bash varenv.sh
 deploy:
   provider: gae
