@@ -2,6 +2,7 @@
 echo "start"
 
 echo "injecting variables"
+chmod +xw app.yaml
 cat <<EOF >>app.yaml
 env_variables:
   MONGODB_URI: $MONGODB_URI
