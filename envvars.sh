@@ -2,8 +2,7 @@
 echo "start"
 
 echo "injecting variables"
-chmod +xw app.yaml
-cat <<EOF >>app.yaml
+cat <<EOF >>env_variables.yaml
 env_variables:
   MONGODB_URI: $MONGODB_URI
   OPEN_WEATHER_TOKEN: $OPEN_WEATHER_TOKEN
