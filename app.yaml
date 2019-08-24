@@ -1,4 +1,1 @@
 runtime: python37
-env_variables:
-  DJANGO_SETTINGS_MODULE: 'myapp.settings'
-  MONGODB_URI: 'TESTE'
