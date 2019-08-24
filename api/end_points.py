@@ -6,6 +6,7 @@ from api.source.source_item_controller import SourceItemController
 from api.source_for_location.source_for_location_controller import SourceForLocationController
 from api.sources.cptec.cptec_today_controller import CPTECTodayController
 from api.sources.open_weather.open_weather_today_controller import OpenWeatherTodayController
+from api.test_controller import TestController
 from api.vote.vote_controller import VoteController
 
 
@@ -15,6 +16,8 @@ class EndPoints:
         self.__api = Api(app)
 
     def add_resources(self):
+        # TEST
+        self.__api.add_resource(TestController, '/test')
         # GENERAL
         self.__api.add_resource(AboutController, '/about')
         # SOURCE
