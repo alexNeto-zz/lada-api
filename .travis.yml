@@ -17,4 +17,5 @@ deploy:
   provider: gae
   keyfile: lada-api-f796c5679cd9.json
   project: lada-api-250821
+  skip_cleanup: true
 
