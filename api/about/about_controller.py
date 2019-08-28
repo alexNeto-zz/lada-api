@@ -1,3 +1,5 @@
+import os
+
 from flask_restful import Resource
 
 from api.api_setup import get_api_version, get_app_version

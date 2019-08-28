@@ -2,6 +2,9 @@ language: python
 python:
   - '3.7'
 sudo: required
+before_install:
+  - openssl aes-256-cbc -K $encrypted_dc2e35eaf6d8_key -iv $encrypted_dc2e35eaf6d8_iv
+    -in lada-api-f796c5679cd9.json.enc -out lada-api-f796c5679cd9.json -d
 install:
   - pip install -r requirements.txt
   - pip install coveralls
@@ -9,8 +12,9 @@ script:
   - coverage run --source=api setup.py test
 after_success:
   - coveralls
+before_deploy: "./create_dotenv.sh"
 deploy:
-  provider: heroku
-  api_key:
-    secure: Nexz/BQ8rTqQaSTs/iS/sX1UYplziH3Ax57bDZl4BuRv9sm7pTcmqBq2b8wSiylbJXaDUJluxgUBfuMOHo4V5FHYx4YPznfYId10J6dhhJDuuVVQK43gPinkN7dRV6xr7NAKFpa2TlneldXTbLTUlm3ncFaHk7q8JA7VZxoYJwkdLya+W85PQz6v+aPxRPLC/uKInA4Kq2faIXiibIK3GGTsB+n1VIsH/cL9EDUsq/gnFM9sNd3GcpPivM4s7RFSVTNlf+uKCmv5O8NDVEmwJMkmgh1jXIOClwMKNYCrxHh8tyWTsPCqz173fFRtPJfONNutZT/RqfI2wTuQCOD17vWVuQOYMPfY0Ew1iLKphMQC7LpCZF+0VmjfGR4diGf25vlDRqUeq+q+ookJ0P8BCxBCmjQVGvbYRBN9BiNtP/xIq6Td5Y6apI2/eZPuoWMagk6OcepLOvvx9fxbPkDdhM2W6R3tDwyezanulrSfegJ4n7DvEQAGxj9ZYc+jQJ/cirbpwYfQFNw38il/px0KmAMluQteLro7dnXbwT2jX5YqvrDVFhQc2eb96syjg8js1z1vPScKkQ4fHG7UVlS7Kj0hwxtOVNfqqjImRXq+70VoIvr/HrDBGSmLxuTUpNWFP+gTh1Thfjq1lXSbPTQlPFHhdEADWOGWr43D1bv5Lgc=
+  provider: gae
+  keyfile: lada-api-f796c5679cd9.json
+  project: lada-api-250821
 
