@@ -46,6 +46,7 @@ source venv/bin/activate
 ```bash
 export FLASK_APP=app.py
 export FLASK_DEBUG=1
+export OPEN_WEATHER_TOKEN=<your-token-here>
 ```
 
 ### Install the dependencies
@@ -58,4 +59,9 @@ pip install -r requirements.txt
 
 ```bash
 python -m flask run
+```
+Or more easily
+
+```bash
+./run dev
 ```

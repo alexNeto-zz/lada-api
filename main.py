@@ -10,7 +10,7 @@ global_init()
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": "lada-app.com"}})
 
 EndPoints(app).add_resources()
 

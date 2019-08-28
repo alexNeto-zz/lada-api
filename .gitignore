@@ -17,4 +17,3 @@ pip-selfcheck.json
 .flaskenv
 __pycache__/
 lada[-_]api.egg-info/
-run.sh

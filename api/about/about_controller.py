@@ -10,6 +10,5 @@ class AboutController(Resource):
     def get(self):
         return {
             "app_version": get_app_version(),
-            "api_version": get_api_version(),
-            "TESTE": os.environ.get('TESTE', '')
+            "api_version": get_api_version()
         }

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+run_dev(){
+    OPEN_WEATHER_TOKEN=$OPEN_WEATHER_TOKEN \
+    FLASK_APP=main.py \
+    FLASK_DEBUG=1 \
+    python -m flask run
+}
+
+run_prod(){
+    docker stop lada-api || \
+    docker build -t lada-api:latest . && \
+    docker run --network="host" -p 5000:5000 --rm \
+    -e MONGODB_URI=$MONGODB_URI \
+    -e OPEN_WEATHER_TOKEN=$OPEN_WEATHER_TOKEN \
+    -e SENTRY_DSN=$SENTRY_DSN \
+    --name lada-api lada-api
+}
+
+if [[ $1 = "dev" ]]; then
+    run_dev
+elif [[ $1 = "prod" ]]; then
+    run_prod
+fi
+
