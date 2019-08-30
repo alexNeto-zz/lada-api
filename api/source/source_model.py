@@ -14,10 +14,7 @@ class SourceModel:
     def get_source_list(self):
         return self.__data_service.find_all()
 
-    def new_source(self, source_name: str, new_source: Source):
-        if source_name == new_source.source_name:
-            return new_source.save()
-        else:
-            return {
-                'msg': 'source_name não são iguais'
-            }
+    @classmethod
+    def new_source(cls, new_source):
+        source = Source(**new_source)
+        return source.save()

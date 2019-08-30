@@ -2,7 +2,6 @@ import json
 
 from flask_restful import Resource, reqparse
 
-from api.services.string_services import dash
 from api.vote.vote_model import VoteModel
 
 

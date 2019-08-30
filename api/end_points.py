@@ -1,12 +1,12 @@
 from flask_restful import Api
 
 from api.about.about_controller import AboutController
+from api.index_controller import IndexController
 from api.source.source_controller import SourceController
 from api.source.source_item_controller import SourceItemController
 from api.source_for_location.source_for_location_controller import SourceForLocationController
 from api.sources.cptec.cptec_today_controller import CPTECTodayController
 from api.sources.open_weather.open_weather_today_controller import OpenWeatherTodayController
-from api.test_controller import TestController
 from api.vote.vote_controller import VoteController
 
 
@@ -17,7 +17,7 @@ class EndPoints:
 
     def add_resources(self):
         # TEST
-        self.__api.add_resource(TestController, '/test')
+        self.__api.add_resource(IndexController, '/')
         # GENERAL
         self.__api.add_resource(AboutController, '/about')
         # SOURCE

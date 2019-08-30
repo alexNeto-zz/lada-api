@@ -1,13 +1,14 @@
 import os
 
-import mongoengine
 import sentry_sdk
+from mongoengine import connect
 
 
 def global_init():
-    mongoengine.connect(alias='core',
-                        db='heroku_x6jxgkt0',
-                        host=os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/heroku_x6jxgkt0'))
+    connect(
+        alias='core',
+        db='lada-db',
+        host=os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/lada-db'))
 
     sentry_sdk.init(dsn=os.environ.get('SENTRY_DSN', ''), release="lada-api@" + get_api_version())
 
@@ -17,4 +18,4 @@ def get_app_version():
 
 
 def get_api_version():
-    return "0.0.2"
+    return "0.0.3"

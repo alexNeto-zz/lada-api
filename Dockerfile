@@ -5,13 +5,12 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 COPY api ./api
 COPY main.py ./
-COPY boot.sh ./
+COPY boot ./
 
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install gunicorn
-RUN chmod +x boot.sh
-
-ENV FLASK_APP main.py
+RUN chmod +x boot
 
 EXPOSE 5000
 

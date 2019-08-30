@@ -3,14 +3,13 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
-from api.end_points import EndPoints
 from api.api_setup import global_init
+from api.end_points import EndPoints
 
 global_init()
 
 app = Flask(__name__)
-
-cors = CORS(app, resources={r"/*": {"origins": "https://lada-app.com"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 EndPoints(app).add_resources()
 

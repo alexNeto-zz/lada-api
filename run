@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+start_d(){
+    sudo systemctl start mongod.service
+    sudo systemctl start docker
+}
+
+stop_d(){
+    sudo systemctl stop mongod.service
+    sudo systemctl stop docker
+}
+
 run_dev(){
     OPEN_WEATHER_TOKEN=$OPEN_WEATHER_TOKEN \
     FLASK_APP=main.py \
@@ -11,6 +21,7 @@ run_prod(){
     docker stop lada-api || \
     docker build -t lada-api:latest . && \
     docker run --network="host" -p 5000:5000 --rm \
+    -e FLASK_APP=main.py \
     -e MONGODB_URI=$MONGODB_URI \
     -e OPEN_WEATHER_TOKEN=$OPEN_WEATHER_TOKEN \
     -e SENTRY_DSN=$SENTRY_DSN \
@@ -21,5 +32,9 @@ if [[ $1 = "dev" ]]; then
     run_dev
 elif [[ $1 = "prod" ]]; then
     run_prod
+elif [[ $1 = "start" ]]; then
+    start_d
+elif [[ $1 = "stop" ]]; then
+    stop_d
 fi
 
