@@ -5,7 +5,6 @@ from mongoengine import connect
 
 
 def global_init():
-    print(os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/lada-db'))
     connect(
         alias='core',
         db='lada-db',
