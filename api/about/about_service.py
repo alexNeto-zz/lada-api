@@ -9,4 +9,4 @@ class AboutService:
         }
 
     def api_version(self):
-        return os.environ.get('TRAVIS_TAG', '0.0.0')
+        return os.environ.get('API_VERSION', '0.0.0')
