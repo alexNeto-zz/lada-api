@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
 echo "injecting varenv"
+echo "Add version from tag $TRAVIS_TAG"
 
 {
   printf "\nenv_variables:\n"
   printf "  MONGODB_URI: '%s'\n" "$MONGODB_URI"
   printf "  OPEN_WEATHER_TOKEN: '%s'\n" "$OPEN_WEATHER_TOKEN"
   printf "  SENTRY_DSN: '%s'\n" "$SENTRY_DSN"
+  printf "  API_VERSION: '%s'\n" "$TRAVIS_TAG"
 } >>app.yaml
 
 echo "done"
